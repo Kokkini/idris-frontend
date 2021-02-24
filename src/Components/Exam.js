@@ -19,7 +19,23 @@ class Exam extends Component {
         this.submitFile = this.submitFile.bind(this);
         this.clearFile = this.clearFile.bind(this);
         this.displayToggle = this.displayToggle.bind(this);
+        this.imageChanger = this.imageChanger.bind(this);
+        this.download=this.download.bind(this);
     }
+    download(e){
+        var element = e.target;
+        var filez = new Blob(
+          [
+            this.state.file
+          ],
+          { type: "image/*" }
+        );
+        element.href = URL.createObjectURL(filez);
+        element.download = "image.jpg";
+        element.click();
+        
+        
+        };
     switchFile(file) {
         this.setState({
             file: file
@@ -33,6 +49,12 @@ class Exam extends Component {
     displayToggle() {
         this.setState({
             display: !this.state.display
+        })
+    }
+
+    imageChanger(imgURL){
+        this.setState({
+            file: imgURL
         })
     }
 
@@ -111,7 +133,7 @@ class Exam extends Component {
                     <ExamUpload file={file} switchFile={this.switchFile} switchFileProcess={this.switchFileProcess} />
                     <div>
                         {display ?
-                            <ExamDisplay num_outputs={num_outputs} results={results} /> :
+                            <ExamDisplay imageChanger={this.imageChanger}  num_outputs={num_outputs} results={results} /> :
                             <ExamSubmit submitFile={this.submitFile} clearFile={this.clearFile} loader={loader}></ExamSubmit>
                         }
                     </div>

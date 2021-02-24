@@ -6,14 +6,15 @@ export default class ExamDisplay extends React.Component{
         super(props);
         this.state={
             resultItem:[],
-            answer_key: null,
+            answer_key: "",
         };
         this.changeAnswerByClick=this.changeAnswerByClick.bind(this);
         this.setAnswer=this.setAnswer.bind(this);
     }
     changeAnswerByClick(answerCode, results){
-        console.log(results[answerCode]);
+        console.log("data:image/jpeg;base64,"+results[answerCode].img);
         this.setAnswer(results[answerCode].keys);
+        this.props.imageChanger("data:image/jpeg;base64,"+results[answerCode].img)
     }
     setAnswer(ak){
         this.setState({
@@ -31,9 +32,7 @@ export default class ExamDisplay extends React.Component{
                 this.setAnswer(results[answerCode].keys);
             }
         }
-        console.log(item)
-        setTimeout(this.setState({resultItem:item}), 2000);
-        console.log(this.state.resultItem)
+        setTimeout(this.setState({resultItem: [...item]}), 3000);
     }
 
     render(){
@@ -53,7 +52,7 @@ export default class ExamDisplay extends React.Component{
                         <input style={{visibility: "hidden"}}/>
                     </div >
                     <div style={{ display: "flex", flexDirection:"row", marginTop: '20px', flexWrap: "wrap"}}>
-                    {this.state.resultItemm}
+                    {this.state.resultItem}
                     </div>
                         <button style={{ margin: '1.5rem' }} id="submit">Lưu</button>
                     </div>
