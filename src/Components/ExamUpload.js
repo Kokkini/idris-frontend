@@ -60,7 +60,7 @@ export default class ExamDisplay extends Component {
 
         return (
             <div className="exam-upload" style={{/*borderRight: "1px dotted black", height: '100vh'*/}}>
-                <form style={{ display: "flex", flexDirection: "column", width: "50vw"  }}>
+                <form style={{ display: "flex", flexDirection: "column", width: "55vw", alignItems: 'center', marginTop: '50px' }}>
                     {/*need to resize to match image size latter on*/}
                     <div className="dottedBorder" id="selectDiv"
                         role="button"

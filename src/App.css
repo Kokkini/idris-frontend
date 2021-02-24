@@ -1,10 +1,14 @@
 .App{
   font-family: Graphik, sans-serif;
+  font-size: 20px;
 }
 input{
   border: 0;
   border-bottom: 1px solid black;
   width: 20vw;
+}
+button, h6, input{
+  font-size: 20px;
 }
 button{
   box-shadow: 0;
@@ -18,4 +22,12 @@ button{
   width: 150px;
   color: white;
   background-color: rgb(24,202,153);
+}
+
+.submit{
+  width: 200px;
+  height: 60px;
+  font-size: 28px;
+  border-radius: 35px;
+
 }
