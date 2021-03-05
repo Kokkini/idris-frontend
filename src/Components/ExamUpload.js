@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
+import '../Styles/ExamUpload.css';
 
 export default class ExamDisplay extends Component {
     constructor(props) {
@@ -69,17 +70,7 @@ export default class ExamDisplay extends Component {
                         onDragEnter={this.dragEnter}
                         onDragLeave={this.dragLeave}
                         onDrop={this.fileDrop}
-                        style={{
-                            border: "1.5px #666666 dashed",
-                            marginLeft: "10px",
-                            height: "500px",
-                            width: "350px",
-                            maxWidth: "500px",
-                            color: "black",
-                            padding: "235px 50px 0 55px",
-                            textAlign: "center",
-                            position: "relative",
-                        }}>
+                        >
                             <AddPhotoAlternateIcon style={{
                             opacity:"0.2",
                             color: "rgb(24,202,153)",

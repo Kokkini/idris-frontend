@@ -1,0 +1,27 @@
+.exam{
+    display: flex;
+    flex-direction: row;
+}
+
+.exam-submit-flex{
+    display: flex;
+    width: 35vw;
+    align-items: center;
+    flex-direction: column; 
+    margin-top: 100px;
+}
+.exam-submit-flex > div{
+    margin-top: 20px;
+}
+
+.left-adjust{
+    margin-left: 40px;
+}
+
+.exam-submit-flex span{
+    padding-right: 10px;
+}
+
+.exam-submit-flex button{
+    margin-top: 60px; 
+}

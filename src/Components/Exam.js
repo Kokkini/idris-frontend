@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import ExamDisplay from "./ExamDisplay";
 import ExamUpload from "./ExamUpload";
 import ExamSubmit from "./ExamSubmit";
-
+import "../Styles/Exam.css";
 class Exam extends Component {
     constructor(props) {
         super(props);
@@ -62,8 +62,6 @@ class Exam extends Component {
                 loader: true
             });
 
-            console.log(answerArray)
-
             const payload = {
                 "image": JSON.stringify(this.state.file).replace("data:image/jpeg;base64,", ""),
                 "keys": answerArray,
@@ -72,13 +70,8 @@ class Exam extends Component {
 
             }
             //TODO: check individual fields of payload instead of the whole object
-            if (payload !== null) {
-                //document.getElementById("loader").style.visibility = "visible";
-                //document.getElementById("submit").disabled = true;
-                //document.getElementById("clear").disabled = true;
-                //document.getElementById("upload").disabled = true;
-
-
+            if (payload.image !== null && payload.keys !== null && payload.num_outputs !== null) {
+                
                 const response = await fetch("http://ec2-34-222-194-221.us-west-2.compute.amazonaws.com/mix-multi-outputs", {
                     method: 'POST',
                     mode: 'cors',
@@ -99,10 +92,6 @@ class Exam extends Component {
             console.log(this.state.num_outputs)
             this.setState({ loader: false })
             this.displayToggle();
-            //document.getElementById("submit").disabled = false;
-            //document.getElementById("clear").disabled = false;
-            //document.getElementById("upload").disabled = false;
-            //document.getElementById("loader").style.visibility = "hidden";
         }
     }
 
@@ -124,7 +113,7 @@ class Exam extends Component {
         const loader = this.state.loader
         return (
             <div>
-                <div style={{ display: "flex", flexDirection: "row" }}>
+                <div className="exam">
                     <ExamUpload file={file} switchFile={this.switchFile} switchFileProcess={this.switchFileProcess} />
                     <div>
                         {display ?
