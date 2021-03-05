@@ -1,70 +1,79 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Idris - exam mixing program by AI
+[idris-edu.com](idris-edu.com)  
+An application that use AI to mix a single multiple choice exam paper into many versions. 
 
-## Available Scripts
+## Motivation
+The program was made to eliminate the chance of student looking at others' paper during exam time. We are surely going down in history as the most cruelsome dictator that have one goal in mind, which is to make the life of student suffer :imp: :imp: :imp: :imp: :imp:
 
-In the project directory, you can run:
+## Getting Started
+These instructions will guild you through the inital setting up process and 
+highlight what the apps can do for you to explore on your own.  
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Notable feature
+- Computer Vision AI for reading image, extracting question portion and rearrage it while keeping the correct question order
+- Download the output images as zip file
+- Canvas redraw system
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Prequesite (front end)
+Nodejs installed for local running purpose    
+check out Node installation instruction [here](https://nodejs.org/en/)  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Installing and Running
+Clone the repo
+```
+$ git clone https://github.com/zahego/Covid-Tracker-19.git
+```
+Run Node command to create node_modules folder from the information in package.json, which hold all the necessary dependencies
+```
+$ npm install
+```
+Run Node command for local testing
+```
+$ npm run start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## What you can do
+- Upload an image of a multiple choice exam (PNG, JPEG, JPG)
+- Provide correct answer to the exam
+- Check out the new images generated to see the differences in the exam question order and answer
+- Download the output images as zip file
+- Redraw box portion of the question if the AI is incorrect
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Technologies stack
+client:  
+- [React](https://reactjs.org/) - framework
+- other ... (To be fixed)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+server:  
+- [python](https://www.python.org/) - backend language
+- other ... (To be fixed)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+AI: 
+- other ... (To be fixed)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Design: 
+- other ... (To be fixed)
 
-## Learn More
+## Contributors
+Quang Tran - leader, backend dev, AI engineer
+Kiet Chu - AI engineer, frontend dev
+Linh Nghiem - marketing, sales
+Thuy Hoang - designer
+Minh Tran - frontend dev
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
+This project is licensed under the MIT License
 
-### Code Splitting
+## Challenges and resolutions
+(to be fixed)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Acknowlegement
+(to be fixed)
