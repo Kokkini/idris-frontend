@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import ExamDisplay from "./ExamDisplay";
 import ExamUpload from "./ExamUpload";
 import ExamSubmit from "./ExamSubmit";
+import ExamSample from "./ExamSample";
 import "../Styles/Exam.css";
 class Exam extends Component {
     constructor(props) {
@@ -61,13 +62,12 @@ class Exam extends Component {
                 num_outputs: parseInt(outputNum),
                 loader: true
             });
-
+            var preProcessImgURL=JSON.stringify(this.state.file);
+            var properImgURL=preProcessImgURL.slice(preProcessImgURL.indexOf(",")).replace(",", "")
             const payload = {
-                "image": JSON.stringify(this.state.file).replace("data:image/jpeg;base64,", ""),
+                "image": properImgURL,
                 "keys": answerArray,
-                "num_outputs": parseInt(outputNum),
-
-
+                "num_outputs": parseInt(outputNum)
             }
             //TODO: check individual fields of payload instead of the whole object
             if (payload.image !== null && payload.keys !== null && payload.num_outputs !== null) {
@@ -114,11 +114,14 @@ class Exam extends Component {
         return (
             <div>
                 <div className="exam">
+                    <div className="exam-left">
                     <ExamUpload file={file} switchFile={this.switchFile} switchFileProcess={this.switchFileProcess} />
-                    <div>
+                    {display ?null:<ExamSample imageChanger={this.imageChanger}/>}
+                    </div>
+                    <div className="exam-right">
                         {display ?
                             <ExamDisplay file={this.state.file} imageChanger={this.imageChanger} num_outputs={num_outputs} results={results} /> :
-                            <ExamSubmit submitFile={this.submitFile} clearFile={this.clearFile} loader={loader}></ExamSubmit>
+                            <ExamSubmit submitFile={this.submitFile} clearFile={this.clearFile} loader={loader} />
                         }
                     </div>
                 </div>

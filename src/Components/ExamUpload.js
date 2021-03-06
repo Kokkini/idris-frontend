@@ -7,7 +7,7 @@ export default class ExamDisplay extends Component {
         super(props);
         this.state = {
             fileRender: null,
-            
+
         };
         this.dragOver = this.dragOver.bind(this);
         this.dragEnter = this.dragOver.bind(this);
@@ -15,21 +15,21 @@ export default class ExamDisplay extends Component {
         this.fileDrop = this.fileDrop.bind(this);
         this.onClickReload = this.onClickReload.bind(this);
         this.loadFile = this.loadFile.bind(this);
-        
+
     }
     dragOver(e) {
         e.preventDefault();
     }
 
-    dragEnter(e){
+    dragEnter(e) {
         e.preventDefault();
     }
 
-    dragLeave(e){
+    dragLeave(e) {
         e.preventDefault();
     }
 
-    fileDrop(e){
+    fileDrop(e) {
         e.preventDefault();
         const files = e.dataTransfer.files;
         const reader = new FileReader();
@@ -37,9 +37,10 @@ export default class ExamDisplay extends Component {
             this.props.switchFile(reader.result)
         };
         reader.readAsDataURL(files[0]);
+        
     }
 
-    onClickReload(){
+    onClickReload() {
         //if infrastructure increase, may consider using redux
         //this is just shortcut since app is too small to implement redux
         if (document.getElementById("upload").value !== "") {
@@ -47,7 +48,7 @@ export default class ExamDisplay extends Component {
         }
     }
 
-    loadFile(e){
+    loadFile(e) {
         this.props.switchFileProcess(null)
         const reader = new FileReader();
         reader.onload = () => {
@@ -57,57 +58,28 @@ export default class ExamDisplay extends Component {
     };
 
     render() {
-        const { file} = this.props
+        const { file } = this.props
 
         return (
-            <div className="exam-upload" style={{/*borderRight: "1px dotted black", height: '100vh'*/}}>
-                <form style={{ display: "flex", flexDirection: "column", width: "55vw", alignItems: 'center', marginTop: '50px' }}>
+            <div className="exam-upload">
+                <form>
                     {/*need to resize to match image size latter on*/}
-                    <div className="dottedBorder" id="selectDiv"
+                    <div className="dottedBorder"
                         role="button"
                         tabIndex={0}
                         onDragOver={this.dragOver}
                         onDragEnter={this.dragEnter}
                         onDragLeave={this.dragLeave}
                         onDrop={this.fileDrop}
-                        >
-                            <AddPhotoAlternateIcon style={{
-                            opacity:"0.2",
-                            color: "rgb(24,202,153)",
-                            position: "absolute",
-                            top: "0",
-                            left: "0",
-                            bottom: "0",
-                            right: "0",
-                            width: "100%",
-                            height: "100%",
-                            zIndex:"2"}}/>
-                        
-                        {file && <img alt="Output" src={file} style={{
-                            zIndex: "6",
-                            position: "absolute",
-                            bottom: "0",
-                            right: "0",
-                            width: "100%",
-                            height: "100%"
-                        }} />}
-                        <span style={{ opacity: "1", zIndex: "3", position: "relative", fontWeight: "lighter", top: "100px" }}>Upload hình ảnh đề thi</span>
+                    >
+                        <AddPhotoAlternateIcon className="ft-awesome" />
+                        {file && <img alt="Output" src={file} />}
+                        <span>Upload hình ảnh đề thi</span>
 
                         <input type="file"
                             onClick={this.onClickReload}
                             onChange={this.loadFile}
-                            id="upload"
-                            style={{
-                                opacity: "0.0",
-                                position: "absolute",
-                                top: "0",
-                                left: "0",
-                                bottom: "0",
-                                right: "0",
-                                width: "100%",
-                                height: "100%",
-                                zIndex: "7",
-                            }} />
+                            id="upload" />
                     </div>
                 </form>
             </div>
