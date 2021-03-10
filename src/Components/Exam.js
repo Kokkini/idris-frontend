@@ -72,7 +72,7 @@ class Exam extends Component {
             //TODO: check individual fields of payload instead of the whole object
             if (payload.image !== null && payload.keys !== null && payload.num_outputs !== null) {
                 
-                const response = await fetch("http://ec2-34-222-194-221.us-west-2.compute.amazonaws.com/mix-multi-outputs", {
+                const response = await fetch("https://backend.idris-edu.com/mix-multi-outputs", {
                     method: 'POST',
                     mode: 'cors',
                     headers: {
