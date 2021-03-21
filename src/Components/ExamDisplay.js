@@ -47,6 +47,7 @@ export default class ExamDisplay extends React.Component {
         const item = [];
         const imageArray_component = [];
         const results = this.props.results;
+        console.log(results)
         const num_outputs = this.props.num_outputs;
         for (var i = 0; i < num_outputs; i++) {
             const answerCode = `00${i}`

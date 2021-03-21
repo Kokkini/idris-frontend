@@ -7,7 +7,7 @@ export default class ExamSample extends React.Component {
         super(props);
         this.base64Converter = this.base64Converter.bind(this);
     }
-    base64Converter(imgBase) {
+    base64Converter(imgBase, answer_key) {
         var c = document.createElement('canvas');
         var img = document.createElement('img');
         img.src = imgBase;
@@ -17,18 +17,18 @@ export default class ExamSample extends React.Component {
 
         ctx.drawImage(img, 0, 0, c.width, c.height);
         var base64string = c.toDataURL()
-        console.log(base64string)
-        this.props.imageChanger(base64string)
+        this.props.imageChanger(base64string, answer_key)
     }
     render() {
         return (
             <div className='exam-sample'>
                 <h6>Sử dụng đề mẫu</h6>
                 <div className='exam-sample-flex'>
-                    <img src={testImage1} alt="" onClick={() => this.base64Converter(testImage1)}></img>
-                    <img src={testImage2} alt="" onClick={() => this.base64Converter(testImage2)}></img>
+                    <img src={testImage1} alt="" onClick={() => this.base64Converter(testImage1, "DACBACCADCAC")}></img>
+                    <img src={testImage2} alt="" onClick={() => this.base64Converter(testImage2, "ABCDABCDABCD")}></img>
                 </div>
             </div>
         )
     }
 }
+

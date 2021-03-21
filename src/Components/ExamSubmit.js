@@ -13,14 +13,17 @@ export default class ExamDisplay extends Component {
     };
 
     updateInputValue(stater, evt) {
+        console.log(document.getElementById("exam-submit-input-answer").value)
         this.setState({
           [stater]: evt.target.value
         });
     };
-        
+
+ 
 
     render() {
         //const { submitFile, clearFile } = this.props
+        
 
         return (
             <div className="exam-submit">
@@ -31,9 +34,9 @@ export default class ExamDisplay extends Component {
                     </div>
                     <div>
                         <span>Đáp án đề gốc:</span>
-                        <input onChange={(e)=>this.updateInputValue("answer_key", e)}/>
+                        <input onChange={(e)=>this.updateInputValue("answer_key", e)} id="exam-submit-input-answer"/>
                     </div >
-                        <button onClick={()=>this.props.submitFile(this.state.answer_key, this.state.num_out)} className="submit">Trộn</button>
+                        <button onClick={()=>this.props.submitFile(document.getElementById("exam-submit-input-answer").value, this.state.num_out )} className="submit">Trộn</button>
                         {this.props.loader? <Loader />:<div/>}
                     </div>
             </div>

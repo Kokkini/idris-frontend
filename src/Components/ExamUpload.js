@@ -64,7 +64,7 @@ export default class ExamDisplay extends Component {
             <div className="exam-upload">
                 <form>
                     {/*need to resize to match image size latter on*/}
-                    <div className="dottedBorder"
+                    <div className="dottedBorder" 
                         role="button"
                         tabIndex={0}
                         onDragOver={this.dragOver}
@@ -72,6 +72,7 @@ export default class ExamDisplay extends Component {
                         onDragLeave={this.dragLeave}
                         onDrop={this.fileDrop}
                     >
+                        <canvas id="wic" /> 
                         <AddPhotoAlternateIcon className="ft-awesome" />
                         {file && <img alt="Output" src={file} />}
                         <span>Upload hình ảnh đề thi</span>
