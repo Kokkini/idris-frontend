@@ -47,11 +47,13 @@ export default class ExamDisplay extends React.Component {
         const item = [];
         const imageArray_component = [];
         const results = this.props.results;
-        console.log(results)
+        console.log("results", results)
         const num_outputs = this.props.num_outputs;
+        const sortedCodes = Object.keys(results).sort();
         for (var i = 0; i < num_outputs; i++) {
-            const answerCode = `00${i}`
-            item.push((<button key={answerCode} className="btn-lite" onClick={() => this.changeAnswerByClick(answerCode, results)}>{answerCode}</button>))
+            const answerCode = sortedCodes[i]
+            console.log(answerCode)
+            item.push((<button key={answerCode} className="btn-lite" onClick={() => this.changeAnswerByClick(answerCode, results)}>{answerCode==="000" ? `000 (${"gốc"})` : answerCode}</button>))
             imageArray_component.push("data:image/jpeg;base64," + results[answerCode].img)
             if (i === 0) {
                 this.changeAnswerByClick(answerCode, results);
@@ -78,7 +80,7 @@ export default class ExamDisplay extends React.Component {
                     <div style={{ display: "flex", flexDirection: "row", marginTop: '20px', flexWrap: "wrap" }}>
                         {this.state.resultItem}
                     </div>
-<button style={{ margin: '1.5rem' }} onClick={(e)=>this.download(e)} className="submit">Lưu</button>
+                    <button style={{ margin: '1.5rem' }} onClick={(e)=>this.download(e)} className="submit">Lưu</button>
                 </div>
             </div>
         )

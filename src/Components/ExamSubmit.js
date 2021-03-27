@@ -36,9 +36,11 @@ export default class ExamDisplay extends Component {
                         <span>Đáp án đề gốc:</span>
                         <input onChange={(e)=>this.updateInputValue("answer_key", e)} id="exam-submit-input-answer"/>
                     </div >
-                        <button onClick={()=>this.props.submitFile(document.getElementById("exam-submit-input-answer").value, this.state.num_out )} className="submit">Trộn</button>
-                        {this.props.loader? <Loader />:<div/>}
-                    </div>
+                    {this.props.submitMode==="format" && <button onClick={() => this.props.submitFormat()} className="submit">Định dạng</button>}
+                    {this.props.submitMode==="mix" && <button onClick={()=>this.props.submitMix(document.getElementById("exam-submit-input-answer").value, this.state.num_out )} className="submit">Trộn</button>}
+                    {/* <button onClick={()=>this.props.submitFile(document.getElementById("exam-submit-input-answer").value, this.state.num_out )} className="submit">Trộn</button> */}
+                    {this.props.loader? <Loader />:<div/>}
+                </div>
             </div>
         )
     }
