@@ -163,8 +163,8 @@ class Exam extends Component {
             <div>
                 <div className="exam">
                     <div className="exam-left">
-                        <button onClick={() => { this.drawRec([[39, 307, 64, 32], [520, 311, 544, 331]]) }}>Draw Rec</button>
-                        <button>Save Rec</button>
+                        {/* <button onClick={() => { this.drawRec([[39, 307, 64, 32], [520, 311, 544, 331]]) }}>Draw Rec</button>
+                        <button>Save Rec</button> */}
                         <ExamUpload file={file} switchFile={this.switchFile} switchFileProcess={this.switchFileProcess} />
                         {display ? null : <ExamSample imageChanger={this.imageChanger} />}
 

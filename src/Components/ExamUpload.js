@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
 import '../Styles/ExamUpload.css';
 
-export default class ExamDisplay extends Component {
+export default class ExamUpload extends Component {
     constructor(props) {
         super(props);
         this.state = {
