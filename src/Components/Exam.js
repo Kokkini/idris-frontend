@@ -24,7 +24,6 @@ class Exam extends Component {
         };
         this.switchFile = this.switchFile.bind(this);
         this.switchFileProcess = this.switchFileProcess.bind(this);
-        this.submitFile = this.submitFile.bind(this);
         this.submitFormat = this.submitFormat.bind(this);
         this.submitMix = this.submitMix.bind(this);
         this.clearFile = this.clearFile.bind(this);
@@ -100,12 +99,14 @@ class Exam extends Component {
         var preProcessImgURL = JSON.stringify(this.state.file);
         var properImgURL = preProcessImgURL.slice(preProcessImgURL.indexOf(",")).replace(",", "") //remove png and jpeg header
         const payload = {
-            "image": properImgURL
+            "img": properImgURL
         }
         try {
             //TODO: check individual fields of payload instead of the whole object
             if (payload.image !== null) {
-                const response = await fetch("https://backend.idris-edu.com/raw-pred", {
+                // let url = "https://backend.idris-edu.com/raw-pred"
+                let url = "http://localhost:5000/raw-pred"
+                const response = await fetch(url, {
                     method: 'POST',
                     mode: 'cors',
                     headers: {
@@ -118,7 +119,7 @@ class Exam extends Component {
                 this.setState({
                     results: resultObject,
                     displayEditor: true,
-                    file: "data:image/jpeg;base64," + resultObject["img"],
+                    file: "data:image/jpeg;base64," + resultObject["img_mix"],
                     rawAnno: resultObject["anno"],
                     submitMode: "mix"
                 })
@@ -157,10 +158,17 @@ class Exam extends Component {
                 num_outputs: parseInt(outputNum),
                 loader: true
             });
-            var preProcessImgURL = JSON.stringify(this.state.file);
-            var properImgURL = preProcessImgURL.slice(preProcessImgURL.indexOf(",")).replace(",", "") //remove png and jpeg header
+            // var preProcessImgURL = JSON.stringify(this.state.file);
+            console.log("results", this.state.results)
+            // var preProcessImgURLMix = JSON.stringify(this.state.results["img_mix"])
+            // var preProcessImgURLDet = JSON.stringify(this.state.results["img_det"])
+            // var properImgURLMix = preProcessImgURLMix.slice(preProcessImgURLMix.indexOf(",")).replace(",", "") //remove png and jpeg header
+            // var properImgURLDet = preProcessImgURLDet.slice(preProcessImgURLDet.indexOf(",")).replace(",", "") //remove png and jpeg header
+            let imgDet = JSON.stringify(this.state.results["img_det"])
+            let imgMix = JSON.stringify(this.state.results["img_mix"])
             const payload = {
-                "image": properImgURL,
+                "img_det": imgDet,
+                "img_mix": imgMix,
                 "keys": answerArray,
                 "num_outputs": parseInt(outputNum),
                 "anno": userAnno
@@ -169,7 +177,9 @@ class Exam extends Component {
             try {
                 //TODO: check individual fields of payload instead of the whole object
                 if (payload.image !== null && payload.keys !== null && payload.num_outputs !== null && payload.anno !== null) {
-                    const response = await fetch("https://backend.idris-edu.com/mix-annotated-multi-outputs", {
+                    // let url = "https://backend.idris-edu.com/mix-annotated-multi-outputs"
+                    let url = "http://localhost:5000/mix-annotated-multi-outputs"
+                    const response = await fetch(url, {
                         method: 'POST',
                         mode: 'cors',
                         headers: {
@@ -199,60 +209,6 @@ class Exam extends Component {
             
         }
     }
-
-    async submitFile(answerKey, outputNum) {
-        console.log()
-        if (answerKey === null || outputNum === null) {
-            alert("Điền thiếu đáp án hoặc số lượng đề")
-        }
-        else {
-            var answerArray = []
-            for (var i = 0; i < answerKey.length; i++) {
-                if (answerKey[i] !== " " && answerKey[i] !== "," && answerKey[i] !== ", ") {
-                    answerArray.push(answerKey[i].toUpperCase())
-                }
-            }
-            console.log(this)
-            this.setState({
-                keys: answerKey,
-                num_outputs: parseInt(outputNum),
-                loader: true
-            });
-            var preProcessImgURL = JSON.stringify(this.state.file);
-            var properImgURL = preProcessImgURL.slice(preProcessImgURL.indexOf(",")).replace(",", "") //remove png and jpeg header
-            const payload = {
-                "image": properImgURL,
-                "keys": answerArray,
-                "num_outputs": parseInt(outputNum)
-            }
-            try {
-                //TODO: check individual fields of payload instead of the whole object
-                if (payload.image !== null && payload.keys !== null && payload.num_outputs !== null) {
-                    const response = await fetch("https://backend.idris-edu.com/mix-multi-outputs", {
-                        method: 'POST',
-                        mode: 'cors',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(payload)
-                    })
-                    const data = await (response.json());
-
-
-                    const resultObject = data;
-                    this.setState({
-                        results: resultObject
-                    })
-                }
-            }
-            catch (err) {
-
-            }
-            this.setState({ loader: false })
-            this.displayToggle();
-        }
-    }
-    
 
     clearFile() {
         this.switchFile(null)
@@ -287,7 +243,7 @@ class Exam extends Component {
                     <div className="exam-right">
                         {display ?
                             <ExamDisplay file={this.state.file} imageChanger={this.imageChanger} num_outputs={num_outputs} results={results} /> :
-                            <ExamSubmit answer={this.state.answer_submit} submitMode={submitMode} submitFile={this.submitFile} submitFormat={this.submitFormat} submitMix={this.submitMix} clearFile={this.clearFile} loader={loader} />
+                            <ExamSubmit answer={this.state.answer_submit} submitMode={submitMode} submitFormat={this.submitFormat} submitMix={this.submitMix} clearFile={this.clearFile} loader={loader} />
                         }
                     </div>
                 </div>

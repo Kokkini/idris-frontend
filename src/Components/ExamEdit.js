@@ -3,10 +3,11 @@ import { fabric } from "fabric";
 
 const ExamEdit = ({ base64, anno, setGetUserAnno }) => {
   const MIN_BOX_SIZE = 4;
-  const QUESTION_LABEL_COLOR = "blue";
-  const ANSWER_LABEL_COLOR = "green";
-  const DRAWING_COLOR = "yellow";
+  const QUESTION_LABEL_COLOR = "#24C7F2";
+  const ANSWER_LABEL_COLOR = "#00ff00";
+  const DRAWING_COLOR = "#ffa500";
   const NULL_COLOR = "purple";
+  const STROKE_WIDTH = 4;
   console.log(anno);
   const [canvas, setCanvas] = useState(null);
   const [drawing, setDrawing] = useState(false);
@@ -79,9 +80,10 @@ const ExamEdit = ({ base64, anno, setGetUserAnno }) => {
         width: 1,
         fill: null,
         stroke: DRAWING_COLOR,
-        strokeWidth: 3,
+        strokeWidth: STROKE_WIDTH,
         selectable: false,
       });
+      // drawingRect.hasRotatingPoint = false
       canvas.add(drawingRect);
     } else {
       return;
@@ -126,6 +128,7 @@ const ExamEdit = ({ base64, anno, setGetUserAnno }) => {
       width: 200,
       fill: "yellow",
     });
+    // rect.hasRotatingPoint = false
     canvas.add(rect);
     canvas.requestRenderAll();
   };
@@ -141,9 +144,10 @@ const ExamEdit = ({ base64, anno, setGetUserAnno }) => {
       width: box[2] - box[0],
       fill: null,
       stroke: color,
-      strokeWidth: 3,
+      strokeWidth: STROKE_WIDTH,
       selectable: selectable,
     });
+    // rect.hasRotatingPoint = false
     canvas.add(rect);
     canvas.requestRenderAll();
     return rect;
@@ -257,10 +261,18 @@ const ExamEdit = ({ base64, anno, setGetUserAnno }) => {
   };
 
   const rectToBbox = (rect) => {
+    let width = rect.width
+    let height = rect.height
+    if("scaleX" in rect){
+      width = width * rect.scaleX      
+    }
+    if("scaleY" in rect){
+      height = height * rect.scaleY
+    }
     let x1 = rect.left;
-    let x2 = rect.left + rect.width;
+    let x2 = rect.left + width;
     let y1 = rect.top;
-    let y2 = rect.top + rect.height;
+    let y2 = rect.top + height;
     return [
       Math.min(x1, x2),
       Math.min(y1, y2),
@@ -279,7 +291,7 @@ const ExamEdit = ({ base64, anno, setGetUserAnno }) => {
       user_anno: { question_labels: [], answer_labels: [] },
     };
     for (let qa of annoWithRect["question-answers"]) {
-      if (objectIsRemoved(qa["question_label"])) {
+      if (qa["question_label"]===null || objectIsRemoved(qa["question_label"])) {
         for (let aLabel in qa["answers"]) {
           let rect = qa["answers"][aLabel];
           if (!objectIsRemoved(rect)) {
