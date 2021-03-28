@@ -17,15 +17,25 @@ export default class ExamDisplay extends React.Component {
     }
     download(e) {
         var zip = new JSZip();
-        var img = zip.folder("images");
+        var folder = zip.folder("exams");
         for(var i=0; i<this.state.imageArray.length; i++){
             var imgData=this.state.imageArray[i].replace("data:image/jpeg;base64,", "");
-            img.file(`md-00${i}.png`, imgData, { base64: true });
+            folder.file(`md-00${i}.png`, imgData, { base64: true });
         }
+        var answerKeys = ["ma de\tdap an"]
+        var results = this.props.results
+        // console.log("results", results)
+        var sortedCodes = Object.keys(results).sort();
+        // console.log("sortedCodes", sortedCodes)
+
+        for(var answerCode of sortedCodes){
+            answerKeys.push(`${answerCode}\t${results[answerCode].keys.join('')}`)
+        }
+        folder.file('dap an.txt', answerKeys.join('\n'))
         zip.generateAsync({ type: "blob" })
             .then(function (content) {
                 // see FileSaver.js
-                saveAs(content, "example.zip");
+                saveAs(content, "exams.zip");
             });
     };
 
@@ -47,7 +57,7 @@ export default class ExamDisplay extends React.Component {
         const item = [];
         const imageArray_component = [];
         const results = this.props.results;
-        console.log("results", results)
+        // console.log("results", results)
         const num_outputs = this.props.num_outputs;
         const sortedCodes = Object.keys(results).sort();
         for (var i = 0; i < num_outputs; i++) {

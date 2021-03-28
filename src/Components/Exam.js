@@ -229,6 +229,7 @@ class Exam extends Component {
         const loader = this.state.loader
         const displayEditor = this.state.displayEditor
         const submitMode = this.state.submitMode
+        console.log("submitMode", submitMode)
         return (
             <div>
                 <div className="exam">
@@ -237,7 +238,7 @@ class Exam extends Component {
                         <button>Save Rec</button> */}
                         {displayEditor ? <ExamEdit base64={file} anno={rawAnno} setGetUserAnno={this.setGetUserAnno}/> : <ExamUpload file={file} switchFile={this.switchFile} switchFileProcess={this.switchFileProcess} />}
                         {/* <ExamUpload file={file} switchFile={this.switchFile} switchFileProcess={this.switchFileProcess} /> */}
-                        {display ? null : <ExamSample imageChanger={this.imageChanger} />}
+                        
 
                     </div>
                     <div className="exam-right">
@@ -245,6 +246,7 @@ class Exam extends Component {
                             <ExamDisplay file={this.state.file} imageChanger={this.imageChanger} num_outputs={num_outputs} results={results} /> :
                             <ExamSubmit answer={this.state.answer_submit} submitMode={submitMode} submitFormat={this.submitFormat} submitMix={this.submitMix} clearFile={this.clearFile} loader={loader} />
                         }
+                        {submitMode==="format" && !loader ? <ExamSample imageChanger={this.imageChanger} /> : null}
                     </div>
                 </div>
             </div>

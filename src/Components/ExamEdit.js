@@ -330,11 +330,11 @@ const ExamEdit = ({ base64, anno, setGetUserAnno }) => {
   return (
     <div>
       {/* <h1>Fabric.js on React - fabric.Canvas('...')</h1> */}
-      <button onClick={startSelecting}>Select</button>
-      <button onClick={startDrawingQuestionLabel}>Add Question Label</button>
-      <button onClick={startDrawingAnswerLabel}>Add Answer Label</button>
-      <button onClick={() => deleteObjects(canvas)}>Delete</button>
-      <button onClick={getUserAnno}>Get User Anno</button>
+      <button onClick={startSelecting}>Chọn</button>
+      <button onClick={startDrawingQuestionLabel}>Khoanh câu hỏi</button>
+      <button onClick={startDrawingAnswerLabel}>Khoanh đáp án</button>
+      <button onClick={() => deleteObjects(canvas)}>Xoá</button>
+      {/* <button onClick={getUserAnno}>Get User Anno</button> */}
       {/* <button onClick={submit}>Submit</button> */}
       <canvas id="canvas" />
     </div>
