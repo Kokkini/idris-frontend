@@ -4,6 +4,7 @@ import ExamUpload from "./ExamUpload";
 import ExamSubmit from "./ExamSubmit";
 import ExamSample from "./ExamSample";
 import ExamEdit from "./ExamEdit";
+import Comments from "./Comments"
 import { fabric } from "fabric";
 import "../Styles/Exam.css";
 class Exam extends Component {
@@ -104,8 +105,8 @@ class Exam extends Component {
         try {
             //TODO: check individual fields of payload instead of the whole object
             if (payload.image !== null) {
-                // let url = "https://backend.idris-edu.com/raw-pred"
-                let url = "http://localhost:5000/raw-pred"
+                let url = "https://backend.idris-edu.com/raw-pred"
+                // let url = "http://localhost:5000/raw-pred"
                 const response = await fetch(url, {
                     method: 'POST',
                     mode: 'cors',
@@ -177,8 +178,8 @@ class Exam extends Component {
             try {
                 //TODO: check individual fields of payload instead of the whole object
                 if (payload.image !== null && payload.keys !== null && payload.num_outputs !== null && payload.anno !== null) {
-                    // let url = "https://backend.idris-edu.com/mix-annotated-multi-outputs"
-                    let url = "http://localhost:5000/mix-annotated-multi-outputs"
+                    let url = "https://backend.idris-edu.com/mix-annotated-multi-outputs"
+                    // let url = "http://localhost:5000/mix-annotated-multi-outputs"
                     const response = await fetch(url, {
                         method: 'POST',
                         mode: 'cors',
@@ -247,6 +248,7 @@ class Exam extends Component {
                             <ExamSubmit answer={this.state.answer_submit} submitMode={submitMode} submitFormat={this.submitFormat} submitMix={this.submitMix} clearFile={this.clearFile} loader={loader} />
                         }
                         {submitMode==="format" && !loader ? <ExamSample imageChanger={this.imageChanger} /> : null}
+                        <Comments/>
                     </div>
                 </div>
             </div>
