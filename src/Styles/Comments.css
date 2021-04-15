@@ -116,31 +116,31 @@ input:focus, textarea:focus {
 #button-blue{
 	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 	float:left;
-	width: 100%;
+	width: 70%;
 	border: #fbfbfb solid 4px;
 	cursor:pointer;
-	background-color: #3498db;
+	background-color: #2879af;
 	color:white;
 	font-size:24px;
-	padding-top:22px;
-	padding-bottom:22px;
+	padding-top:3px;
+	padding-bottom:3px;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
-  margin-top:-4px;
-  font-weight:700;
+  	margin-top:-4px;
+  	font-weight:700;
 }
 
 #button-blue:hover{
-	background-color: rgba(0,0,0,0);
-	color: #0493bd;
+	background-color: #37a0e6;
+	/* color: #0493bd; */
 }
 	
 .submit:hover {
 	color: #3498db;
 }
 	
-.ease {
+/* .ease {
 	width: 0px;
 	height: 74px;
 	background-color: #fbfbfb;
@@ -149,12 +149,12 @@ input:focus, textarea:focus {
 	-o-transition: .3s ease;
 	-ms-transition: .3s ease;
 	transition: .3s ease;
-}
+} */
 
-.submit:hover .ease{
+/* .submit:hover .ease{
   width:100%;
   background-color:white;
-}
+} */
 
 @media only screen and (max-width: 580px) {
 	#form-div{

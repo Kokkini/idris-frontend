@@ -3,69 +3,83 @@ import { fabric } from "fabric";
 import "../Styles/Comments.css";
 
 const Comments = () => {
-  const [email, setEmail] = useState(null)
-  const [comment, setComment] = useState(null)
+  const [email, setEmail] = useState("");
+  const [comment, setComment] = useState("");
 
   const handleChangeEmail = (event) => {
-    setEmail(event.target.value)
-  }
+    setEmail(event.target.value);
+  };
   const handleChangeComment = (event) => {
-    setComment(event.target.value)
-  }
+    setComment(event.target.value);
+  };
 
   const onSubmit = async (event) => {
     event.preventDefault();
     const payload = {
-      "email": email,
-      "comment": comment
-    }
+      email: email,
+      comment: comment,
+    };
     try {
-      if(payload.comment !== null && payload.comment !== ""){
-        let url = "https://backend.idris-edu.com/add-comment"
+      if (payload.comment !== null && payload.comment !== "") {
+        let url = "https://backend.idris-edu.com/add-comment";
         // let url = "http://localhost:5000/add-comment"
         const response = await fetch(url, {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        })
-        if(!response.ok){
-            alert("Xảy ra lỗi, vui lòng thử lại")
-            throw new Error("response not ok")
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+        if (!response.ok) {
+          alert("Xảy ra lỗi, vui lòng thử lại");
+          throw new Error("response not ok");
         }
-        alert("Cảm ơn bạn đã góp ý!")
-        
+        const data = await response.json();
+        console.log(data);
+        setEmail("");
+        setComment("");
+        alert("Cảm ơn bạn đã góp ý!");
       } else {
-        alert("Điền góp ý trước khi gửi")
+        alert("Điền góp ý trước khi gửi");
       }
-      
+    } catch (err) {
+      console.log(err);
     }
-    catch (err) {
-        console.log(err)
-    }
-  }
+  };
 
   return (
     <div id="form-main">
       <div id="form-div">
         <form className="form" id="form1" onSubmit={onSubmit}>
           <p className="email">
-            <input name="email" type="text" className="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" onChange={handleChangeEmail}/>
+            <input
+              name="email"
+              type="text"
+              value={email}
+              className="validate[required,custom[email]] feedback-input"
+              id="email"
+              placeholder="Email"
+              onChange={handleChangeEmail}
+            />
           </p>
           <p className="text">
-            <textarea name="text" className="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Góp ý" onChange={handleChangeComment}></textarea>
+            <textarea
+              name="text"
+              value={comment}
+              className="validate[required,length[6,300]] feedback-input"
+              id="comment"
+              placeholder="Góp ý"
+              onChange={handleChangeComment}
+            ></textarea>
           </p>
           <div className="submit">
-            <input type="submit" value="Gửi" id="button-blue"/>
-            <div className="ease"></div>
+            <input type="submit" value="Gửi" id="button-blue" />
+            {/* <div className="ease"></div> */}
           </div>
         </form>
       </div>
     </div>
-    
-    
   );
 };
 
