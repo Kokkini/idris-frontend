@@ -23,8 +23,6 @@ export default class ExamDisplay extends Component {
 
     render() {
         //const { submitFile, clearFile } = this.props
-        
-
         return (
             <div className="exam-submit">
                 <div className="exam-submit-flex">

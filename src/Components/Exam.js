@@ -5,6 +5,8 @@ import ExamSubmit from "./ExamSubmit";
 import ExamSample from "./ExamSample";
 import ExamEdit from "./ExamEdit";
 import Comments from "./Comments"
+import Contacts from "./Contacts"
+import logo from '../Resources/logo.png';
 import { fabric } from "fabric";
 import "../Styles/Exam.css";
 class Exam extends Component {
@@ -233,6 +235,10 @@ class Exam extends Component {
         console.log("submitMode", submitMode)
         return (
             <div>
+                {/* <div>
+                    <img src={logo} alt="Logo" className="logo"/>
+                    <h1 className="title">Idris - Trộn đề</h1>
+                </div> */}
                 <div className="exam">
                     <div className="exam-left">
                         {/* <button onClick={() => { this.drawRec([[39, 307, 64, 32], [520, 311, 544, 331]]) }}>Draw Rec</button>
@@ -248,7 +254,8 @@ class Exam extends Component {
                             <ExamSubmit answer={this.state.answer_submit} submitMode={submitMode} submitFormat={this.submitFormat} submitMix={this.submitMix} clearFile={this.clearFile} loader={loader} />
                         }
                         {submitMode==="format" && !loader ? <ExamSample imageChanger={this.imageChanger} /> : null}
-                        <Comments/>
+                        {/* <Comments/> */}
+                        {/* <Contacts/> */}
                     </div>
                 </div>
             </div>

@@ -1,11 +1,20 @@
 :root{
   --primary-color: rgb(3,4,94);
+  --margin: 0px;
 }
 
 .App{
   font-family: Graphik, sans-serif;
   font-size: 20px;
+  margin: 0px;
+  /* background-color: #A8BDEF; */
 }
+
+body{
+  margin: 0px;
+  padding: 0px;
+}
+
 input{
   border: 0;
   border-bottom: 1px solid black;

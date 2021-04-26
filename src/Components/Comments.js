@@ -52,7 +52,7 @@ const Comments = () => {
     <div id="form-main">
       <div id="form-div">
         <form className="form" id="form1" onSubmit={onSubmit}>
-          <p className="email">
+          <div className="email">
             <input
               name="email"
               type="text"
@@ -62,8 +62,8 @@ const Comments = () => {
               placeholder="Email"
               onChange={handleChangeEmail}
             />
-          </p>
-          <p className="text">
+          </div>
+          <div className="text">
             <textarea
               name="text"
               value={comment}
@@ -72,8 +72,8 @@ const Comments = () => {
               placeholder="Góp ý"
               onChange={handleChangeComment}
             ></textarea>
-          </p>
-          <div className="submit">
+          </div>
+          <div>
             <input type="submit" value="Gửi" id="button-blue" />
             {/* <div className="ease"></div> */}
           </div>
