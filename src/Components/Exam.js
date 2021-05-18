@@ -201,7 +201,8 @@ class Exam extends Component {
                     const resultObject = data;
                     // console.log("resultObject", resultObject)
                     this.setState({
-                        results: resultObject, displayEditor: false
+                        results: resultObject, 
+                        displayEditor: false
                     })
                     this.displayToggle();
                 }
@@ -256,9 +257,11 @@ class Exam extends Component {
                             <ExamDisplay file={this.state.file} imageChanger={this.imageChanger} num_outputs={num_outputs} results={results} /> :
                             <ExamSubmit answer={this.state.answer_submit} submitMode={submitMode} submitFormat={this.submitFormat} submitMix={this.submitMix} clearFile={this.clearFile} loader={loader} />
                         }
-                        {submitMode === "mix" && <div style={{marginLeft: '10%', width: '80%', marginTop: '50px', textAlign: 'center'}}>
-                            Sửa các phần khoanh sai bằng bộ dụng cụ bên dưới
-                        </div>}
+                        {displayEditor ? 
+                            <div style={{marginLeft: '10%', width: '80%', marginTop: '50px', textAlign: 'center'}}>
+                                Sửa các phần khoanh sai bằng bộ dụng cụ bên dưới
+                            </div> : null
+                        }
                         {submitMode==="format" && !loader ? <ExamSample imageChanger={this.imageChanger} /> : null}
                         {/* <Comments/> */}
                         {/* <Contacts/> */}
