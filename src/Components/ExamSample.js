@@ -22,7 +22,8 @@ export default class ExamSample extends React.Component {
     render() {
         return (
             <div className='exam-sample'>
-                <h6>Sử dụng đề mẫu</h6>
+                <div style={{ marginTop: "30px" }}></div>
+                <span>Sử dụng đề mẫu</span>
                 <div className='exam-sample-flex'>
                     {/* <img src={testImage1} alt="" onClick={() => this.base64Converter(testImage1, "DACBACCADCAC")}></img> */}
                     <img src={testImage2} alt="" onClick={() => this.base64Converter(testImage2, "ABCDABCDABCDA")}></img>

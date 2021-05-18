@@ -13,6 +13,8 @@
 
 .text-input{
     background-color: #53fafa;
+    width: 300px;
+    margin-top: 5px;
 }
 
 .text-input:hover{
@@ -34,7 +36,7 @@
 }
 
 .left-adjust{
-    margin-left: 40px;
+    margin-left: 60px;
 }
 
 .exam-submit-flex span{

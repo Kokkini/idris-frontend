@@ -26,12 +26,12 @@ export default class ExamDisplay extends Component {
         return (
             <div className="exam-submit">
                 <div className="exam-submit-flex">
-                    <div className="left-adjust"> 
-                        <span>Số đề trộn:</span>
+                    <div> 
+                        <div>Số đề trộn:</div>
                         <input className='text-input' onChange={(e)=>this.updateInputValue("num_out", e)} id="exam-submit-input-num-output"/>
                     </div>
                     <div>
-                        <span>Đáp án đề gốc:</span>
+                        <div>Đáp án đề gốc:</div>
                         <input className='text-input' onChange={(e)=>this.updateInputValue("answer_key", e)} id="exam-submit-input-answer"/>
                     </div >
                     {this.props.submitMode==="format" && <button onClick={() => this.props.submitFormat()} className="submit">Định dạng</button>}

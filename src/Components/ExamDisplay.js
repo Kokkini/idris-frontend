@@ -80,14 +80,14 @@ export default class ExamDisplay extends React.Component {
             <div className="exam-display">
                 <div style={{ display: "flex", alignItems: "center", flexDirection: "column", marginTop: "100px" }}>
                     <div style={{ marginTop: "20px", marginLeft: "10px" }}>
-                        <span style={{ paddingRight: "10px" }}>Đáp án:</span>
-                        <input disabled value={this.state.answer_key} />
+                        <div>Đáp án:</div>
+                        <input className='text-input' disabled value={this.state.answer_key} />
                     </div>
-                    <div style={{ marginTop: "20px" }}>
-                        <span style={{ paddingRight: "10px" }}>Mã đề:</span>
-                        <input style={{ visibility: "hidden" }} />
+                    <div style={{ marginTop: "80px" }}>
+                        <span>Mã đề</span>
+                        {/* <input style={{ visibility: "hidden" }} /> */}
                     </div >
-                    <div style={{ display: "flex", flexDirection: "row", marginTop: '20px', marginLeft: '40px', flexWrap: "wrap" }}>
+                    <div style={{ display: "flex", flexDirection: "row", justifyContent: 'center', alignContent: "center", flexWrap: "wrap" }}>
                         {this.state.resultItem}
                     </div>
                     <button style={{ margin: '1.5rem' }} onClick={(e)=>this.download(e)} className="submit">Lưu</button>
