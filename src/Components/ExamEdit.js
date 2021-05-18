@@ -336,7 +336,6 @@ const ExamEdit = ({ base64, anno, setGetUserAnno }) => {
   return (
     <div>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-      
       <div className="divider">
         <div className="canvas-container">
           <canvas id="canvas" />
