@@ -28,14 +28,14 @@ export default class ExamDisplay extends Component {
                 <div className="exam-submit-flex">
                     <div className="left-adjust"> 
                         <span>Số đề trộn:</span>
-                        <input onChange={(e)=>this.updateInputValue("num_out", e)}/>
+                        <input className='text-input' onChange={(e)=>this.updateInputValue("num_out", e)} id="exam-submit-input-num-output"/>
                     </div>
                     <div>
                         <span>Đáp án đề gốc:</span>
-                        <input onChange={(e)=>this.updateInputValue("answer_key", e)} id="exam-submit-input-answer"/>
+                        <input className='text-input' onChange={(e)=>this.updateInputValue("answer_key", e)} id="exam-submit-input-answer"/>
                     </div >
                     {this.props.submitMode==="format" && <button onClick={() => this.props.submitFormat()} className="submit">Định dạng</button>}
-                    {this.props.submitMode==="mix" && <button onClick={()=>this.props.submitMix(document.getElementById("exam-submit-input-answer").value, this.state.num_out )} className="submit">Trộn</button>}
+                    {this.props.submitMode==="mix" && <button onClick={()=>this.props.submitMix(document.getElementById("exam-submit-input-answer").value, document.getElementById("exam-submit-input-num-output").value )} className="submit">Trộn</button>}
                     {/* <button onClick={()=>this.props.submitFile(document.getElementById("exam-submit-input-answer").value, this.state.num_out )} className="submit">Trộn</button> */}
                     {this.props.loader? <Loader />:<div/>}
                 </div>

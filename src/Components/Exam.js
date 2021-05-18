@@ -84,12 +84,15 @@ class Exam extends Component {
         })
     }
 
-    imageChanger(imgURL, answerKey) {
+    imageChanger(imgURL, answerKey, numOutput) {
         this.setState({
             file: imgURL
         })
         if (answerKey !== undefined && answerKey !== null && answerKey !== "") {
             document.getElementById("exam-submit-input-answer").value = answerKey;
+        }
+        if (numOutput !== undefined && numOutput !== null){
+            document.getElementById("exam-submit-input-num-output").value = numOutput;
         }
     }
 
@@ -140,7 +143,7 @@ class Exam extends Component {
     async submitMix(answerKey, outputNum) {
         console.log()
         if (answerKey === null || outputNum === null) {
-            alert("Điền thiếu đáp án hoặc số lượng đề")
+            alert("Điền thiếu đáp án hoặc số lượng đề trộn")
         }
         else {
             var answerArray = []

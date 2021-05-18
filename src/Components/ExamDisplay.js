@@ -87,7 +87,7 @@ export default class ExamDisplay extends React.Component {
                         <span style={{ paddingRight: "10px" }}>Mã đề:</span>
                         <input style={{ visibility: "hidden" }} />
                     </div >
-                    <div style={{ display: "flex", flexDirection: "row", marginTop: '20px', flexWrap: "wrap" }}>
+                    <div style={{ display: "flex", flexDirection: "row", marginTop: '20px', marginLeft: '40px', flexWrap: "wrap" }}>
                         {this.state.resultItem}
                     </div>
                     <button style={{ margin: '1.5rem' }} onClick={(e)=>this.download(e)} className="submit">Lưu</button>

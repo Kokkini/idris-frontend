@@ -4,10 +4,23 @@
 }
 
 .exam-left{
-    width: 60%;
+    width: 1000px;
 }
 .exam-right{
-    width: 40%;
+    width: 1000px;
+    background: #53fafa;
+}
+
+.text-input{
+    background-color: #53fafa;
+}
+
+.text-input:hover{
+    background-color: #53fafa;
+}
+
+.text-input:focus{
+    background-color: #53fafa;
 }
 
 .exam-submit-flex{

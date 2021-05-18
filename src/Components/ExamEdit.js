@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
 import { fabric } from "fabric";
+import "../Styles/ExamEdit.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import penA from "../Resources/pen-a.png"
+import penQ from "../Resources/pen-q.png"
+// import MyIcon from "./MyIcon"
+
 
 const ExamEdit = ({ base64, anno, setGetUserAnno }) => {
   const MIN_BOX_SIZE = 4;
@@ -329,14 +335,49 @@ const ExamEdit = ({ base64, anno, setGetUserAnno }) => {
 
   return (
     <div>
-      {/* <h1>Fabric.js on React - fabric.Canvas('...')</h1> */}
-      <button onClick={startSelecting}>Chọn</button>
-      <button onClick={startDrawingQuestionLabel}>Khoanh câu hỏi</button>
-      <button onClick={startDrawingAnswerLabel}>Khoanh đáp án</button>
-      <button onClick={() => deleteObjects(canvas)}>Xoá</button>
-      {/* <button onClick={getUserAnno}>Get User Anno</button> */}
-      {/* <button onClick={submit}>Submit</button> */}
-      <canvas id="canvas" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      
+      <div className="divider">
+        <div className="canvas-container">
+          <canvas id="canvas" />
+        </div>
+        
+        <div className="wrapper">
+          <div onClick={startSelecting} class="button">
+              <div className="icon">
+                {/* <i className="fab fa-facebook-f"></i> */}
+                <i class="fas fa-mouse-pointer"></i>
+                {/* <FontAwesomeIcon icon="check-square" /> */}
+              </div>
+              <span>Chọn</span>
+          </div>
+          <div onClick={startDrawingQuestionLabel} className="button">
+              <div className="icon">
+                {/* <i className="fab fa-twitter"></i> */}
+                
+                <img className="custom-icon" src={penQ} alt=""/>
+                
+              </div>
+              <span>Khoanh câu hỏi</span>
+          </div>
+          <div onClick={startDrawingAnswerLabel} className="button">
+              <div className="icon">
+                {/* <i className="fab fa-instagram"></i> */}
+                <img className="custom-icon" src={penA} alt=""/>
+              </div>
+              <span>Khoanh lựa chọn</span>
+          </div>
+          <div onClick={() => deleteObjects(canvas)} className="button">
+              <div className="icon">
+                {/* <i className="fab fa-github"></i> */}
+                <i class="fas fa-trash-alt"></i>
+              </div>
+              <span>Xoá</span>
+          </div>
+        </div>
+      </div>
+
+      
     </div>
   );
 };

@@ -17,7 +17,7 @@ export default class ExamSample extends React.Component {
 
         ctx.drawImage(img, 0, 0, c.width, c.height);
         var base64string = c.toDataURL()
-        this.props.imageChanger(base64string, answer_key)
+        this.props.imageChanger(base64string, answer_key, 4)
     }
     render() {
         return (

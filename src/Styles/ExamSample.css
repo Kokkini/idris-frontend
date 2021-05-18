@@ -8,7 +8,13 @@ text-align: center;
     gap: 5%;
     justify-content: center;
 }
+
 .exam-sample-flex img{
+    border: 2px solid transparent;
     width: 30%;
     height: 30%;
+}
+
+.exam-sample-flex img:hover{
+    border: 2px solid rgb(3,4,94);
 }

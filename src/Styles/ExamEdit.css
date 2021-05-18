@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+} */
+/* html,body{
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+} */
+.divider {
+  display: flex;
+  flex-direction: row;
+  height: 1500px;
+}
+
+.wrapper {
+  /* align-items: center; */
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.canvas-container {
+  width: 1000px;
+  height: 1500px;
+}
+
+.custom-icon{
+  width: 35px;
+  height: auto;
+  margin-top: 12px;
+}
+
+.wrapper .button {
+  /* display:table; */
+  /* display: inline-block; */
+  /* display: flex; */
+  /* align-items: flex-start; */
+  /* align-items: center; */
+  height: 60px;
+  width: 60px;
+  /* float: left; */
+  margin-top: 5px;
+  margin-left: 10px;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+  z-index: 999;
+  /* position: relative; */
+}
+
+.wrapper .button:hover {
+  width: 250px;
+}
+.wrapper .button .icon {
+  display: inline-block;
+  vertical-align:middle;
+  margin-top: 0px;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+  background: #fff;
+}
+
+.wrapper .button:hover .icon {
+  background: #4a77f3;
+}
+/* .wrapper .button:nth-child(1):hover .icon {
+  background: #4267b2;
+}
+.wrapper .button:nth-child(2):hover .icon {
+  background: #1da1f2;
+}
+.wrapper .button:nth-child(3):hover .icon {
+  background: #e1306c;
+}
+.wrapper .button:nth-child(4):hover .icon {
+  background: #333;
+} */
+.wrapper .button .icon i {
+  font-size: 25px;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+
+.wrapper .button .icon img {
+  font-size: 25px;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+
+.wrapper .button:hover .icon i {
+  color: #fff;
+}
+
+.wrapper .button span{
+  display: inline-block;
+  height: 60px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 60px;
+  margin-left: 10px;
+  transition: all 0.3s ease-out;
+  vertical-align: middle;
+  color: #000;
+}
+
+/* .wrapper .button:nth-child(1) span {
+  color: #4267b2;
+}
+.wrapper .button:nth-child(2) span {
+  color: #1da1f2;
+}
+.wrapper .button:nth-child(3) span {
+  color: #e1306c;
+}
+.wrapper .button:nth-child(4) span {
+  color: #333;
+} */
+
+/* .canvas-container {
+    float: left
+} */
