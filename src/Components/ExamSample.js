@@ -2,6 +2,7 @@ import React from 'react';
 import testImage1 from '../Resources/test-better.jpg';
 import testImage2 from '../Resources/test_2.png';
 import '../Styles/ExamSample.css';
+import '../Styles/App.css';
 export default class ExamSample extends React.Component {
     constructor(props) {
         super(props);
@@ -23,10 +24,10 @@ export default class ExamSample extends React.Component {
         return (
             <div className='exam-sample'>
                 <div style={{ marginTop: "30px" }}></div>
-                <span>Sử dụng đề mẫu</span>
+                <span className="regular-text">Sử dụng đề mẫu</span>
                 <div className='exam-sample-flex'>
                     {/* <img src={testImage1} alt="" onClick={() => this.base64Converter(testImage1, "DACBACCADCAC")}></img> */}
-                    <img src={testImage2} alt="" onClick={() => this.base64Converter(testImage2, "ABCDABCDABCDA")}></img>
+                    <img className="shadow" src={testImage2} alt="" onClick={() => this.base64Converter(testImage2, "ABCDABCDABCDA")}></img>
                 </div>
             </div>
         )

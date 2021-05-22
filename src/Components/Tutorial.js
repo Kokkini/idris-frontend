@@ -1,3 +1,4 @@
+import '../Styles/App.css';
 const Tutorial = () => {
     return (
         <div
@@ -7,7 +8,7 @@ const Tutorial = () => {
         }}>
             <div>
                 <h2 className="regular-text" style={{textAlign: "center"}}>Trộn đề</h2>
-                <iframe title="trộn đề" width="800px" height="500px" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                <iframe className="shadow" title="trộn đề" width="800px" height="500px" src="https://www.youtube.com/embed/tgbNymZ7vqY">
                 </iframe>
             </div>
         </div>

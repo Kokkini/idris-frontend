@@ -51,7 +51,7 @@
   background: #fff;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow);
   transition: all 0.3s ease-out;
   z-index: 999;
   /* position: relative; */
@@ -60,6 +60,13 @@
 .wrapper .button:hover {
   width: 250px;
 }
+
+.wrapper .button:active {
+  width: 250px;
+  transform: translateY(4px);
+  box-shadow: var(--shadow-short);
+}
+
 .wrapper .button .icon {
   display: inline-block;
   vertical-align:middle;

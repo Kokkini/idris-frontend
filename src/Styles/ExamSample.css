@@ -11,7 +11,7 @@ text-align: center;
 }
 
 .exam-sample-flex img{
-    border: 5px solid transparent;
+    border: 0px solid transparent;
     width: 30%;
     height: 30%;
 }

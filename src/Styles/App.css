@@ -12,6 +12,8 @@
   --margin: 0px;
   --white: #ffffff;
   --black: #000000;
+  --shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+  --shadow-short: 4px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
 .App{
@@ -59,15 +61,35 @@ button{
   font-size: 28px;
   border-radius: 35px;
   background: linear-gradient(to right, var(--primary-color), var(--second-color));
+  box-shadow: var(--shadow);
+}
+
+.submit:active{
+  transform: translateY(4px);
+  box-shadow: var(--shadow-short);
 }
 
 .btn-lite{
   /* background-color:rgb(144,225,239); */
   background: linear-gradient(to right, var(--primary-color), var(--second-color));
+  box-shadow: var(--shadow);
 }
 
 .btn-lite:focus{
   /* background-color:rgb(144,225,239); */
   background: var(--third-color);
   color: var(--primary-color);
+}
+
+.btn-lite:hover{
+  color: var(--fourth-color);
+}
+
+.btn-lite:active{
+  transform: translateY(4px);
+  box-shadow: var(--shadow-short);
+}
+
+.shadow{
+  box-shadow: var(--shadow);
 }

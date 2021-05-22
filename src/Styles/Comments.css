@@ -23,6 +23,7 @@
 	float: left;
 	left: 50%;
 	/* position: absolute; */
+	box-shadow: var(--shadow);
   	margin-top: 5%;
 	margin-left: 20%;
 	-moz-border-radius: 7px;
