@@ -72,7 +72,7 @@ export default class ExamUpload extends Component {
                         onDragLeave={this.dragLeave}
                         onDrop={this.fileDrop}
                     >
-                        <span>Upload hình ảnh đề thi</span>
+                        <span className="regular-text">Upload hình ảnh đề thi</span>
                         <canvas id="wic" /> 
                         <AddPhotoAlternateIcon className="ft-awesome" />
                         {file && <img alt="Output" src={file} />}

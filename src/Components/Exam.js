@@ -258,7 +258,7 @@ class Exam extends Component {
                             <ExamSubmit answer={this.state.answer_submit} submitMode={submitMode} submitFormat={this.submitFormat} submitMix={this.submitMix} clearFile={this.clearFile} loader={loader} />
                         }
                         {displayEditor ? 
-                            <div style={{marginLeft: '10%', width: '80%', marginTop: '50px', textAlign: 'center'}}>
+                            <div className="regular-text" style={{marginLeft: '10%', width: '80%', marginTop: '50px', textAlign: 'center'}}>
                                 Sửa các phần khoanh sai bằng bộ dụng cụ bên dưới
                             </div> : null
                         }

@@ -6,7 +6,7 @@ const Tutorial = () => {
             width: '50%'
         }}>
             <div>
-                <h2>Trộn đề</h2>
+                <h2 className="regular-text" style={{textAlign: "center"}}>Trộn đề</h2>
                 <iframe title="trộn đề" width="800px" height="500px" src="https://www.youtube.com/embed/tgbNymZ7vqY">
                 </iframe>
             </div>

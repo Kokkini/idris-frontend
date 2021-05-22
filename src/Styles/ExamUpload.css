@@ -66,7 +66,8 @@
 
 .ft-awesome{
     opacity:1;
-    color: #53fafa;
+    color: var(--third-color);
+    /* color: linear-gradient(var(--fourth-color), var(--third-color)); */
     position: absolute;
     top: 50px;
     left: 0;

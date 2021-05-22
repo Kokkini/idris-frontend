@@ -2,7 +2,7 @@ import "../Styles/Contacts.css";
 
 const Contacts = () => {
     return (
-        <div class="contacts">
+        <div class="contacts regular-text">
             <h2>
                 Liên hệ
             </h2>

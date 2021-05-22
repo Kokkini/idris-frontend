@@ -3,7 +3,7 @@ import '../Styles/Loader.css';
 const Loader = () => {
     return (
         <div id="loader" style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", flexDirection: 'column'  }} >
-            <span style={{marginTop: '30px', marginBottom: '30px'}}>Chờ một chút</span> 
+            <span className="regular-text" style={{marginTop: '30px', marginBottom: '30px'}}>Chờ một chút</span> 
             <div className="load-3 load-wrapp">
                 <span className="line"></span>
                 <span className="line"></span>

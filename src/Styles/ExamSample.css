@@ -11,11 +11,11 @@ text-align: center;
 }
 
 .exam-sample-flex img{
-    border: 2px solid transparent;
+    border: 5px solid transparent;
     width: 30%;
     height: 30%;
 }
 
 .exam-sample-flex img:hover{
-    border: 2px solid rgb(3,4,94);
+    border: 5px solid rgb(3,4,94);
 }

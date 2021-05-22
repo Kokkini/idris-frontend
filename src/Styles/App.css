@@ -5,15 +5,25 @@
 }
 
 :root{
-  --primary-color: rgb(3,4,94);
+  --primary-color: #03055e;
+  --second-color: #4464ae;
+  --third-color: #c1e0ff;
+  --fourth-color: #84c2ff;
   --margin: 0px;
+  --white: #ffffff;
+  --black: #000000;
 }
 
 .App{
-  font-family: Graphik, sans-serif;
+  /* font-family: Graphik, sans-serif; */
   font-size: 20px;
   margin: 0px;
-  /* background-color: #A8BDEF; */
+  background: linear-gradient(var(--third-color), var(--primary-color));
+  height: 1591px;
+}
+
+.regular-text{
+  color: var(--primary-color);
 }
 
 body{
@@ -48,9 +58,16 @@ button{
   height: 60px;
   font-size: 28px;
   border-radius: 35px;
+  background: linear-gradient(to right, var(--primary-color), var(--second-color));
 }
 
 .btn-lite{
   /* background-color:rgb(144,225,239); */
-  background-color: rgb(3,4,94);
+  background: linear-gradient(to right, var(--primary-color), var(--second-color));
+}
+
+.btn-lite:focus{
+  /* background-color:rgb(144,225,239); */
+  background: var(--third-color);
+  color: var(--primary-color);
 }

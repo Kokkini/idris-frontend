@@ -75,7 +75,7 @@
 }
 
 .wrapper .button:hover .icon {
-  background: #4a77f3;
+  background: var(--fourth-color);
 }
 /* .wrapper .button:nth-child(1):hover .icon {
   background: #4267b2;
@@ -102,7 +102,7 @@
 }
 
 .wrapper .button:hover .icon i {
-  color: #fff;
+  color: var(--black);
 }
 
 .wrapper .button span{

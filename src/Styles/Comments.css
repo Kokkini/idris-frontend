@@ -16,7 +16,8 @@
 }
 
 #form-div {
-	background-color:rgb(3,4,94);
+	/* background-color: var(--primary-color); */
+	background: linear-gradient(to right, var(--primary-color), var(--second-color));
 	padding: 17px;
 	width: 60%;
 	float: left;
@@ -31,7 +32,7 @@
 
 .feedback-input {
 	color:#3c3c3c;
-	font-family: Helvetica, Arial, sans-serif;
+	/* font-family: Helvetica, Arial, sans-serif; */
 	font-weight:500;
 	font-size: 18px;
 	border-radius: 0;
@@ -73,7 +74,7 @@
 	/* background-image: url(http://rexkirby.com/kirbyandson/images/name.svg); */
 	background-size: 30px 30px;
 	background-position: 8px 5px;
-  background-position: 11px 8px;
+  	background-position: 11px 8px;
 	background-repeat: no-repeat;
 }
 
@@ -87,7 +88,7 @@
 #email:focus{
 	/* background-image: url(http://rexkirby.com/kirbyandson/images/email.svg); */
 	background-size: 30px 30px;
-  background-position: 11px 8px;
+  	background-position: 11px 8px;
 	background-repeat: no-repeat;
 }
 
@@ -111,13 +112,15 @@ input:focus, textarea:focus {
 }
 
 #button-blue{
-	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	/* font-family: 'Montserrat', Arial, Helvetica, sans-serif; */
 	float:right;
 	width: 30%;
+	border: 0;
+  	border-radius: 10px;
 	/* border: #fbfbfb solid 4px; */
 	cursor:pointer;
-	background-color: #2879af;
-	color:white;
+	background-color: var(--fourth-color);
+	color: var(--white);
 	font-size:24px;
 	padding-top:3px;
 	padding-bottom:3px;
@@ -129,12 +132,12 @@ input:focus, textarea:focus {
 }
 
 #button-blue:hover{
-	background-color: #37a0e6;
+	background-color: var(--third-color);
 	/* color: #0493bd; */
 }
 
 .submit:hover {
-	color: #3498db;
+	color: var(--fourth-color);
 }
 	
 /* .ease {

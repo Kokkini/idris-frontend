@@ -80,11 +80,11 @@ export default class ExamDisplay extends React.Component {
             <div className="exam-display">
                 <div style={{ display: "flex", alignItems: "center", flexDirection: "column", marginTop: "100px" }}>
                     <div style={{ marginTop: "20px", marginLeft: "10px" }}>
-                        <div>Đáp án:</div>
+                        <div className="regular-text">Đáp án:</div>
                         <input className='text-input' disabled value={this.state.answer_key} />
                     </div>
                     <div style={{ marginTop: "80px" }}>
-                        <span>Mã đề</span>
+                        <span className="regular-text">Mã đề</span>
                         {/* <input style={{ visibility: "hidden" }} /> */}
                     </div >
                     <div style={{ display: "flex", flexDirection: "row", justifyContent: 'center', alignContent: "center", flexWrap: "wrap" }}>
