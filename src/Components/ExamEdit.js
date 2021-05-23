@@ -14,7 +14,7 @@ const ExamEdit = ({ base64, anno, setGetUserAnno }) => {
   const DRAWING_COLOR = "#ffa500";
   const NULL_COLOR = "purple";
   const STROKE_WIDTH = 4;
-  console.log(anno);
+  // console.log(anno);
   const [canvas, setCanvas] = useState(null);
   const [drawing, setDrawing] = useState(false);
   let firstPoint = null;
@@ -342,10 +342,10 @@ const ExamEdit = ({ base64, anno, setGetUserAnno }) => {
         </div>
         
         <div className="wrapper">
-          <div onClick={startSelecting} class="button">
+          <div onClick={startSelecting} className="button">
               <div className="icon">
                 {/* <i className="fab fa-facebook-f"></i> */}
-                <i class="fas fa-mouse-pointer"></i>
+                <i className="fas fa-mouse-pointer"></i>
                 {/* <FontAwesomeIcon icon="check-square" /> */}
               </div>
               <span>Chọn</span>
@@ -369,7 +369,7 @@ const ExamEdit = ({ base64, anno, setGetUserAnno }) => {
           <div onClick={() => deleteObjects(canvas)} className="button">
               <div className="icon">
                 {/* <i className="fab fa-github"></i> */}
-                <i class="fas fa-trash-alt"></i>
+                <i className="fas fa-trash-alt"></i>
               </div>
               <span>Xoá</span>
           </div>

@@ -141,7 +141,6 @@ class Exam extends Component {
     }
 
     async submitMix(answerKey, outputNum) {
-        console.log()
         if (answerKey === null || outputNum === null) {
             alert("Điền thiếu đáp án hoặc số lượng đề trộn")
         }
@@ -155,9 +154,29 @@ class Exam extends Component {
 
             const userAnno = this.state.getUserAnno()
             const numAnnotatedQuestions = Object.keys(userAnno["question-answers"]).length + userAnno["user_anno"]["question_labels"].length
+            let numAnnotatedAnswers = userAnno["user_anno"]["answer_labels"].length;
+            for(let qa of userAnno["question-answers"]){
+                numAnnotatedAnswers += Object.keys(qa["answers"]).length
+            }
+            
             if(numAnnotatedQuestions !== answerArray.length){
                 alert(`Số câu hỏi được khoanh trên hình (${numAnnotatedQuestions} câu) khác số đáp án đúng của đề gốc (${answerArray.length} đáp án). Vui lòng kiểm tra lại.`)
                 return
+            }
+            if(numAnnotatedAnswers !== numAnnotatedQuestions*4){
+                let message = "";
+                if(numAnnotatedAnswers > numAnnotatedQuestions*4){
+                    message = `LƯU Ý: Số lựa chọn được khoanh (${numAnnotatedAnswers}) nhiều hơn 4 lần số câu hỏi được khoanh (${numAnnotatedQuestions}*4=${numAnnotatedQuestions*4}). Có thể bạn đã khoanh thừa lựa chọn hoặc thiếu đáp án. Bạn có chắc chắn muốn tiếp tục?`
+                } else {
+                    message = `LƯU Ý: Số lựa chọn được khoanh (${numAnnotatedAnswers}) ít hơn 4 lần số câu hỏi được khoanh (${numAnnotatedQuestions}*4=${numAnnotatedQuestions*4}). Có thể bạn đã khoanh thừa đáp án hoặc thiếu lựa chọn. Bạn có chắc chắn muốn tiếp tục?`
+                }
+                if (window.confirm(message)) {
+                    console.log('Ignored the number of answers warning');
+                } else {
+                    // Do nothing!
+                    console.log('Recheck because of the number of answers warning');
+                    return
+                }
             }
             this.setState({
                 keys: answerKey,
@@ -165,7 +184,7 @@ class Exam extends Component {
                 loader: true
             });
             // var preProcessImgURL = JSON.stringify(this.state.file);
-            console.log("results", this.state.results)
+            // console.log("results", this.state.results)
             // var preProcessImgURLMix = JSON.stringify(this.state.results["img_mix"])
             // var preProcessImgURLDet = JSON.stringify(this.state.results["img_det"])
             // var properImgURLMix = preProcessImgURLMix.slice(preProcessImgURLMix.indexOf(",")).replace(",", "") //remove png and jpeg header
@@ -179,7 +198,7 @@ class Exam extends Component {
                 "num_outputs": parseInt(outputNum),
                 "anno": userAnno
             }
-            console.log("payload",payload)
+            // console.log("payload",payload)
             try {
                 //TODO: check individual fields of payload instead of the whole object
                 if (payload.image !== null && payload.keys !== null && payload.num_outputs !== null && payload.anno !== null) {

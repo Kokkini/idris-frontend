@@ -73,7 +73,7 @@ export default class ExamUpload extends Component {
                         onDrop={this.fileDrop}
                     >
                         <span style={{color: "white"}}>Upload ảnh đề thi</span>
-                        <canvas id="wic" /> 
+                        {/* <canvas id="wic" />  */}
                         <AddPhotoAlternateIcon className="ft-awesome" />
                         {file && <img alt="Output" src={file} />}
 

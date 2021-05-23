@@ -44,7 +44,7 @@ export default class ExamDisplay extends React.Component {
         for (var i = 0; i < results[answerCode].keys.length; i++) {
             StringConverer += results[answerCode].keys[i];
         }
-        console.log(StringConverer)
+        // console.log(StringConverer)
         this.setAnswer(StringConverer);
         this.props.imageChanger("data:image/jpeg;base64," + results[answerCode].img)
     }
@@ -62,7 +62,7 @@ export default class ExamDisplay extends React.Component {
         const sortedCodes = Object.keys(results).sort();
         for (var i = 0; i < num_outputs; i++) {
             const answerCode = sortedCodes[i]
-            console.log(answerCode)
+            // console.log(answerCode)
             item.push((<button key={answerCode} className="btn-lite" onClick={() => this.changeAnswerByClick(answerCode, results)}>{answerCode==="000" ? `000 (${"gốc"})` : answerCode}</button>))
             imageArray_component.push("data:image/jpeg;base64," + results[answerCode].img)
             if (i === 0) {
