@@ -15,13 +15,13 @@ const Tutorial = () => {
           Trộn đề
         </h2>
         <iframe
-          width="560"
-          height="315"
+          width="800"
+          height="450"
           src="https://www.youtube.com/embed/aarpcE--YPU"
           title="Trộn đề"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowfullscreen="allowfullscreen"
           style={{
             marginLeft: "auto",
             marginRight: "auto"
