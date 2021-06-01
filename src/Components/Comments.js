@@ -36,7 +36,7 @@ const Comments = () => {
           throw new Error("response not ok");
         }
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setEmail("");
         setComment("");
         alert("Cảm ơn bạn đã góp ý!");
